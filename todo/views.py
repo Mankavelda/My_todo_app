@@ -24,9 +24,10 @@ class ItemListView(ListView):
 class ListCreate(CreateView):
     model = ToDoList
     fields = ["title"]
+    template_name = "todolist_form.html"
 
-    def get_context_data(self):
-        context = super(ListCreate, self).get_context_data()
+    def get_context_data(self, **kwargs):
+        context = super(ListCreate, self).get_context_data(**kwargs)
         context["title"] = "Add a new list"
         return context
 class ItemCreate(CreateView):
@@ -37,6 +38,7 @@ class ItemCreate(CreateView):
         "description",
         "due_date",
     ]
+    template_name = "todoitem_form.html"
 
     def get_initial(self):
         initial_data = super(ItemCreate, self).get_initial()
@@ -62,6 +64,8 @@ class ItemUpdate(UpdateView):
         "description",
         "due_date",
     ]
+    template_name = "todoitem_form.html"
+    
 
     def get_context_data(self):
         context = super(ItemUpdate, self).get_context_data()
@@ -77,9 +81,11 @@ class ListDelete(DeleteView):
     # use reverse_lazy() instead of reverse(),
     # as the urls are not loaded when the file is imported.
     success_url = reverse_lazy("index")
+    template_name = "todolist_confirm_delete.html"
 
 class ItemDelete(DeleteView):
     model = ToDoItem
+    template_name = "todoitem_confirm_delete.html"
 
     def get_success_url(self):
         return reverse_lazy("list", args=[self.kwargs["list_id"]])

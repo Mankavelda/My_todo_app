@@ -1,5 +1,6 @@
 
 <!-- Base template -->
+{%load static%}
 <!doctype html>
 <html lang="en">
 
@@ -8,8 +9,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Simple.css-->
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <title>My To-do Lists</title>
+    {% comment %} <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> {% endcomment %}
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title id="my">My To-do Lists</title>
 </head>
 
 <body>
@@ -20,7 +23,7 @@
     </div>
     <div>
         {% block content %}
-        This content will be replaced by different html code for each page.
+       
         {% endblock %}
     </div>
 </body>
