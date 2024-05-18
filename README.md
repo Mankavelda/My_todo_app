@@ -15,12 +15,12 @@ cd My-todo-app
 python -m venv venv
 
 ```
-### 3. ctivate the Virtual Environment
+### 3. activate the Virtual Environment
 - windows 
 ```bash
 venv\Scripts\activate
 ```
--On macOS and Linux:
+- On macOS and Linux:
 ```bash
 source venv/bin/activate
 ```
